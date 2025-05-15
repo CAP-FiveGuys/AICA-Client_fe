@@ -15,5 +15,4 @@ namespace UserAccountManager.InterfacesWrapper
             await LoginHandler.HandleLoginAsync(view.UserId, view.Password, view.ShowMessage);
         }
     }
-
 }

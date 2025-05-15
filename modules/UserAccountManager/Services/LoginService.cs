@@ -7,20 +7,22 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using UserAccountManager.Models;
 
+using Utility.RequestConst;
+
 namespace UserAccountManager.Services
 {
     public static class LoginService
     {
+        private static readonly HttpClient client = RequestConst.client;
+        private static string host = RequestConst.host;
         public static async Task<(bool Success, string Message)> LoginAsync(string userId, string password)
         {
             var loginInfo = new { userId, password };
             var content = new StringContent(JsonSerializer.Serialize(loginInfo), Encoding.UTF8, "application/json");
 
-            using var client = new HttpClient();
-
             try
             {
-                var response = await client.PostAsync("https://your-api.com/api/login", content);
+                var response = await client.PostAsync($"{host}/api/login", content);
                 var json = await response.Content.ReadAsStringAsync();
 
                 if (!response.IsSuccessStatusCode)

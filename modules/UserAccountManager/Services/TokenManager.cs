@@ -7,10 +7,14 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using UserAccountManager.Models;
 
+using Utility.RequestConst;
+
 namespace UserAccountManager.Services
 {
     public static class TokenManager
     {
+        private static readonly HttpClient client = RequestConst.client;
+        private static string host = RequestConst.host;
         public static string AccessToken { get; private set; }
         public static string RefreshToken { get; private set; }
 
@@ -33,13 +37,12 @@ namespace UserAccountManager.Services
 
             try
             {
-                using var client = new HttpClient();
                 var content = new StringContent(JsonSerializer.Serialize(new
                 {
                     refreshToken = RefreshToken
                 }), Encoding.UTF8, "application/json");
 
-                var response = await client.PostAsync("https://your-api.com/api/auth/refresh", content);
+                var response = await client.PostAsync($"{host}/api/auth/refresh", content);
 
                 if (!response.IsSuccessStatusCode)
                     return false;

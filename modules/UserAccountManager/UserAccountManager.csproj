@@ -10,6 +10,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Uility\Utility.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Handlers\UserRegistrationHandler.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>

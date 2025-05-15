@@ -8,13 +8,16 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using UserAccountManager.Models;
 
+using Utility.RequestConst;
+
 namespace UserAccountManager.Services
 {
     public static class UserInfoService
     {
+        private static readonly HttpClient client = RequestConst.client;
+        private static string host = RequestConst.host;
         public static async Task<(bool Success, UserInfo Data, string Message)> GetUserInfoAsync()
         {
-            using var client = new HttpClient();
 
             // ✅ TokenManager에서 AccessToken 직접 가져옴
             client.DefaultRequestHeaders.Authorization =
@@ -22,7 +25,7 @@ namespace UserAccountManager.Services
 
             try
             {
-                var response = await client.GetAsync("https://your-api.com/api/user/me");
+                var response = await client.GetAsync($"{host}/api/user/me");
                 var json = await response.Content.ReadAsStringAsync();
 
                 if (!response.IsSuccessStatusCode)
@@ -45,8 +48,6 @@ namespace UserAccountManager.Services
         {
             try
             {
-                using var client = new HttpClient();
-
                 var content = new StringContent(JsonSerializer.Serialize(new
                 {
                     password = password
@@ -55,7 +56,7 @@ namespace UserAccountManager.Services
                 client.DefaultRequestHeaders.Authorization =
                     new AuthenticationHeaderValue("Bearer", TokenManager.AccessToken);
 
-                var response = await client.PostAsync("https://your-api.com/api/user/verify-password", content);
+                var response = await client.PostAsync($"{host}/api/user/verify-password", content);
 
                 if (!response.IsSuccessStatusCode)
                     return false;

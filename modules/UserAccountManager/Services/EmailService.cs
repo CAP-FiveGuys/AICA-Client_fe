@@ -6,11 +6,14 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
+using Utility.RequestConst;
+
 namespace UserAccountManager.Services
 {
     public class EmailService
     {
-        private static readonly HttpClient _httpClient = new HttpClient();
+        private static readonly HttpClient _httpClient = RequestConst.client;
+        private static string host=RequestConst.host;
 
         private class AuthResponse
         {
@@ -30,7 +33,7 @@ namespace UserAccountManager.Services
 
             try
             {
-                var response = await _httpClient.PostAsync("https://yourapi.com/api/auth/send-code", content);
+                var response = await _httpClient.PostAsync($"{host}/api/auth/send-code", content);
                 if (!response.IsSuccessStatusCode)
                     return (false, null, "서버 오류");
 
@@ -52,7 +55,7 @@ namespace UserAccountManager.Services
 
             try
             {
-                var response = await _httpClient.PostAsync("https://yourapi.com/api/auth/verify-code", content);
+                var response = await _httpClient.PostAsync($"{host}/api/auth/verify-code", content);
                 if (!response.IsSuccessStatusCode)
                     return (false, "서버 인증 실패");
 
