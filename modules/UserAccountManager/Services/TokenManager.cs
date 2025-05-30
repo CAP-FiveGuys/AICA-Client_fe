@@ -27,13 +27,12 @@ namespace UserAccountManager.Services
         public static bool IsTokenValid()
         {
             return !string.IsNullOrWhiteSpace(AccessToken);
-            // 만약 만료 시각을 도입한다면 여기에 시간 체크 추가
         }
 
-        public static async Task<bool> RefreshTokenAsync()
+        public static async Task<(bool Success, string Message)> RefreshTokenAsync()
         {
             if (string.IsNullOrWhiteSpace(RefreshToken))
-                return false;
+                return (false, "리프레시 토큰이 없습니다.");
 
             try
             {
@@ -43,10 +42,6 @@ namespace UserAccountManager.Services
                 }), Encoding.UTF8, "application/json");
 
                 var response = await client.PostAsync($"{host}/api/auth/refresh", content);
-
-                if (!response.IsSuccessStatusCode)
-                    return false;
-
                 var json = await response.Content.ReadAsStringAsync();
 
                 var result = JsonSerializer.Deserialize<TokenResponse>(json, new JsonSerializerOptions
@@ -54,24 +49,28 @@ namespace UserAccountManager.Services
                     PropertyNameCaseInsensitive = true
                 });
 
-                AccessToken = result.AccessToken;
-                RefreshToken = result.RefreshToken;
+                if (result?.Code == 201 && result.Data != null)
+                {
+                    AccessToken = result.Data.AccessToken;
+                    RefreshToken = result.Data.RefreshToken;
+                    return (true, result.Message);
+                }
 
-                return true;
+                return (false, result?.Message ?? "토큰 갱신 실패");
             }
-            catch
+            catch (Exception ex)
             {
-                return false;
+                return (false, $"에러: {ex.Message}");
             }
         }
 
-        public static async Task<bool> EnsureValidTokenAsync()
+        public static async Task<(bool Success, string Message)> EnsureValidTokenAsync()
         {
             if (IsTokenValid())
-                return true;
+                return (true, "유효한 토큰");
 
             return await RefreshTokenAsync();
         }
-    }
 
+    }
 }

@@ -6,16 +6,9 @@ using System.Threading.Tasks;
 
 namespace UserAccountManager.Models
 {
-    public class TokenData
-    {
-        public string AccessToken { get; set; }
-        public string RefreshToken { get; set; }
-    }
-
-    public class TokenResponse
+    public class DeleteUserResponse
     {
         public int Code { get; set; }
         public string Message { get; set; }
-        public TokenData Data { get; set; }
     }
 }
