@@ -1,3 +1,4 @@
+﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35828.75
@@ -8,15 +9,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordSearch", "modules\WordS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utility", "modules\Uility\Utility.csproj", "{BD010121-AA99-4643-A4A6-683783560EA7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModuleTest", "ModuleTest\ModuleTest.csproj", "{ABD26380-2BE5-42E7-8372-3102466305E7}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SentenceManager", "modules\SentenceManager\SentenceManager.csproj", "{86F64494-2B97-43E5-8EA0-9F4E46F24FF8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VocabNote", "modules\VocabNote\VocabNote.csproj", "{A287119A-0379-41D1-9521-10AF236C8847}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Translate", "modules\Translate\Translate.csproj", "{68092497-BAB8-C52A-8554-78CE9FDE9024}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserAccountManager", "E:\GitHub\AICA-Client_fe\modules\UserAccountManager\UserAccountManager.csproj", "{B0BA55B9-F799-44DC-B6CF-C7BD9A548F5B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModuleTest", "..\ModuleTest\ModuleTest.csproj", "{0689815C-61A8-F566-72FC-5B3146FF7C85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserAccountManager", "modules\UserAccountManager\UserAccountManager.csproj", "{8D6A4A1E-7FE0-9752-143D-D1E428A9BCE2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,10 +35,6 @@ Global
 		{BD010121-AA99-4643-A4A6-683783560EA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD010121-AA99-4643-A4A6-683783560EA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD010121-AA99-4643-A4A6-683783560EA7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{ABD26380-2BE5-42E7-8372-3102466305E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ABD26380-2BE5-42E7-8372-3102466305E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ABD26380-2BE5-42E7-8372-3102466305E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ABD26380-2BE5-42E7-8372-3102466305E7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{86F64494-2B97-43E5-8EA0-9F4E46F24FF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{86F64494-2B97-43E5-8EA0-9F4E46F24FF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86F64494-2B97-43E5-8EA0-9F4E46F24FF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -50,10 +47,14 @@ Global
 		{68092497-BAB8-C52A-8554-78CE9FDE9024}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68092497-BAB8-C52A-8554-78CE9FDE9024}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68092497-BAB8-C52A-8554-78CE9FDE9024}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B0BA55B9-F799-44DC-B6CF-C7BD9A548F5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B0BA55B9-F799-44DC-B6CF-C7BD9A548F5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B0BA55B9-F799-44DC-B6CF-C7BD9A548F5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B0BA55B9-F799-44DC-B6CF-C7BD9A548F5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0689815C-61A8-F566-72FC-5B3146FF7C85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0689815C-61A8-F566-72FC-5B3146FF7C85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0689815C-61A8-F566-72FC-5B3146FF7C85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0689815C-61A8-F566-72FC-5B3146FF7C85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D6A4A1E-7FE0-9752-143D-D1E428A9BCE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D6A4A1E-7FE0-9752-143D-D1E428A9BCE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D6A4A1E-7FE0-9752-143D-D1E428A9BCE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D6A4A1E-7FE0-9752-143D-D1E428A9BCE2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
